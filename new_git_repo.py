@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 git_dir = "/Users/wouter/test/development/git/"
 #git_dir = "/home/development/git/"
-
+repo_dir = git_dir + args.repo_name + ".git"
 ##
 # This is what we have to do
 ##
@@ -24,7 +24,8 @@ git_dir = "/Users/wouter/test/development/git/"
 print "Nothing implemented yet. This is what we want to do, eventually:"
 
 # create git_dir
-os.makedirs(git_dir + args.repo_name + ".git")
+if not os.path.isdir(repo_dir):
+  os.makedirs(repo_dir)
 
 print "cd %s" %(args.repo_name)
 print "sudo mkdir %s.git" %(args.repo_name)
