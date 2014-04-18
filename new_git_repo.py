@@ -25,12 +25,17 @@ print "Nothing implemented yet. This is what we want to do, eventually:"
 
 # create git_dir
 if not os.path.isdir(repo_dir):
-  os.makedirs(repo_dir)
+  try:
+    # print "cd %s" %(args.repo_name)
+    # print "sudo mkdir %s.git" %(args.repo_name)
+    os.makedirs(repo_dir)
+    # print "cd %s.git" %(args.repo_name)
+    # print "sudo git --bare init"
+    proc = subprocess.Popen(['sudo','/usr/bin/env','git','--bare','init'], cwd=repo_dir)
+  except OSError, e:
+    raise e
 
-print "cd %s" %(args.repo_name)
-print "sudo mkdir %s.git" %(args.repo_name)
-print "cd %s.git" %(args.repo_name)
-print "sudo git --bare init"
+
 print "cd .."
 print "sudo chown -R git:git %s.git" %(args.repo_name)
 
