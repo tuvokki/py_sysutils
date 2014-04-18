@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+import argparse
+
+parser = argparse.ArgumentParser(description='Create a new git repo.')
+
+parser.add_argument('-repo_name', help='The name of the repo', required=True)
+
+args = parser.parse_args()
+
+git_dir = "/home/development/git/"
+
 ##
 # This is what we have to do
 ##
@@ -12,10 +22,10 @@
 ##
 print "Nothing implemented yet. This is what we want to do, eventually:"
 
-print "cd /home/development/git\n"
-print "sudo mkdir test.git\n"
-print "cd test.git\n"
-print "sudo git --bare init\n"
-print "cd ..\n"
-print "sudo chown -R git:git test.git\n"
+print "cd %s" %(args.repo_name)
+print "sudo mkdir %s.git" %(args.repo_name)
+print "cd %s.git" %(args.repo_name)
+print "sudo git --bare init"
+print "cd .."
+print "sudo chown -R git:git %s.git" %(args.repo_name)
 
