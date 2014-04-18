@@ -8,11 +8,11 @@ parser.add_argument('-repo_name', help='The name of the repo', required=True)
 
 args = parser.parse_args()
 
-git_dir = "/Users/wouter/test/development/git/"
-#git_dir = "/home/development/git/"
+#git_dir = "/Users/wouter/test/development/git/"
+git_dir = "/home/development/git/"
 repo_dir = git_dir + args.repo_name + ".git"
-git_user = "root"
-git_group = "wheel"
+git_user = "git"
+git_group = "git"
 ##
 # This is what we have to do
 ##
@@ -33,10 +33,10 @@ if not os.path.isdir(repo_dir):
     os.makedirs(repo_dir)
     # print "cd %s.git" %(args.repo_name)
     # print "sudo git --bare init"
-    proc = subprocess.Popen(['sudo','/usr/bin/env','git','--bare','init'], cwd=repo_dir)
+    proc = subprocess.Popen(['/usr/bin/env','git','--bare','init'], cwd=repo_dir)
     # print "cd .."
     # print "sudo chown -R git:git %s.git" %(args.repo_name)
-    proc = subprocess.Popen(['sudo','/usr/bin/env','chown','-R',git_user+':'+git_group,repo_dir])
+    proc = subprocess.Popen(['/usr/bin/env','chown','-R',git_user+':'+git_group,repo_dir])
   except OSError, e:
     raise e
 
