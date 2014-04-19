@@ -5,7 +5,7 @@ import argparse, os, subprocess, sys
 if os.geteuid() != 0:
     exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
-parser = argparse.ArgumentParser(description='Create a new git repo.',epilog='Run this program as regular user with sudo.')
+parser = argparse.ArgumentParser(description='Create a new git repo.',epilog='Run this program as regular user with sudo.\nInprired by http://git-scm.com/book/en/Git-on-the-Server-Setting-Up-the-Server')
 
 parser.add_argument('-r','--repo_name', help='The name of the repo', required=True)
 parser.add_argument('-d','--git_dir', help='The base dir of git', dest='git_dir', default='/home/development/git/', required=False)
