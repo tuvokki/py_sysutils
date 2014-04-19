@@ -32,7 +32,7 @@ Run this program as regular user with sudo or with sufficient rights to chown.
 * git init
 * git add .
 * git commit -m 'initial commit'
-* git remote add origin git@gitserver:/Users/wouter/test/development/git/plppssssssssssso.git
+* git remote add origin git@gitserver:GIT_DIR/REPO_NAME.git
 * git push origin master
 
 #####and to get the repo's updates
